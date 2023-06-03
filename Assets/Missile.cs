@@ -1,5 +1,7 @@
 using UnityEngine;
 
+
+
 public class Missile : MonoBehaviour
 {
     public float speed = 5f;
@@ -13,13 +15,18 @@ public class Missile : MonoBehaviour
     public int resolution;
     public Transform targetpos1;
     public GameObject[] sphere50;
+    bool bHasCollided=false;
+    
    
     private void Start()
     {
         startPos = transform.position;
-       
         GeneratePath(resolution);
+
+     
     }
+
+  
 
     private void GeneratePath(int resolution)
     {
@@ -38,24 +45,23 @@ public class Missile : MonoBehaviour
 
     private Vector3 CalculateCurvePoint(float t)
     {
-        // Calculate the interpolated position along the curve using t
         Vector3 point = Vector3.Lerp(startPos, targetPos, t);
-        
-        // Add a curve offset to the y-axis based on t to create a curved trajectory
         float yOffset = Mathf.Sin(t * Mathf.PI) * curveMagnitude;
         point += Vector3.up * yOffset;
-      
         return point;
     }
 
     private void Update()
     {
-        targetPos = targetpos1.position;
-         GeneratePath(resolution);
-        if (path == null || path.Length == 0)
-            return;
+        if (!bHasCollided)
+        {
+            targetPos = targetpos1.position;
+            GeneratePath(resolution);
+            if (path == null || path.Length == 0)
+                return;
 
-        MoveAlongPath();
+            MoveAlongPath();
+        }
     }
 
     private void MoveAlongPath()
@@ -79,22 +85,30 @@ public class Missile : MonoBehaviour
         }
 
         transform.position += direction * speed * Time.deltaTime;
+
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        bHasCollided = true;
         DestroyMissile();
+        
+        //start the missile e
     }
 
     private void DestroyMissile()
     {
         Debug.Log("Destroyed");
-        ExplosionEffect();
-        Destroy(gameObject);
-    }
 
-    private void ExplosionEffect()
+        DestroyEffect();
+        Destroy(gameObject,3);
+    }
+    public void DestroyEffect()
     {
-        // Add any explosion effect logic here
+
     }
 }
+
+
+
