@@ -16,7 +16,7 @@ public class Missile : MonoBehaviour
     public Transform targetpos1;
     public GameObject[] sphere50;
     bool bHasCollided=false;
-    
+    public GameObject Effect;
    
     private void Start()
     {
@@ -92,6 +92,7 @@ public class Missile : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         bHasCollided = true;
+        Instantiate(Effect,transform.position,Quaternion.identity);
         DestroyMissile();
         
         //start the missile e
@@ -99,15 +100,10 @@ public class Missile : MonoBehaviour
 
     private void DestroyMissile()
     {
-        Debug.Log("Destroyed");
-
-        DestroyEffect();
-        Destroy(gameObject,3);
+      
+        Destroy(gameObject);
     }
-    public void DestroyEffect()
-    {
-
-    }
+   
 }
 
 
