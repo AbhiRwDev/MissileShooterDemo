@@ -21,7 +21,7 @@ public class BlackHole : MonoBehaviour
         }
         else
         {
-            transform.localScale = Vector3.Lerp(transform.lossyScale,Vector3.zero,Time.deltaTime*ShrinkSpeed);
+            transform.localScale = Vector3.Lerp(transform.localScale,Vector3.zero,Time.deltaTime*ShrinkSpeed);
         }
     }
     

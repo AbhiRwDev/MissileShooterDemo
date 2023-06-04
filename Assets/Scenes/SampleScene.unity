@@ -5499,6 +5499,7 @@ GameObject:
   - component: {fileID: 272708912}
   - component: {fileID: 272708911}
   - component: {fileID: 272708910}
+  - component: {fileID: 272708913}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -5584,6 +5585,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272708908}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &272708913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272708908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faed3c878b1af5449a4add6b257d2815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 6.4
+  ShrinkSpeed: 6
 --- !u!1 &290487178
 GameObject:
   m_ObjectHideFlags: 0
@@ -5846,7 +5861,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383415519}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: faed3c878b1af5449a4add6b257d2815, type: 3}
   m_Name: 
@@ -28701,6 +28716,7 @@ GameObject:
   - component: {fileID: 1501093920}
   - component: {fileID: 1501093919}
   - component: {fileID: 1501093918}
+  - component: {fileID: 1501093922}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -28787,6 +28803,20 @@ Transform:
   m_Father: {fileID: 383415520}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1501093922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501093917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faed3c878b1af5449a4add6b257d2815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 7
+  ShrinkSpeed: 6
 --- !u!1 &1523227250
 GameObject:
   m_ObjectHideFlags: 0
