@@ -69,11 +69,11 @@ public class Missile : MonoBehaviour
         Vector3 targetPosition = path[currentPathIndex];
         Vector3 direction = (targetPosition - transform.position).normalized;
 
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+        transform.LookAt(targetPosition);
 
         float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
-        if (distanceToTarget <= 0.3f)
+        if (distanceToTarget <= 0.4f)
         {
             currentPathIndex++;
 
@@ -84,7 +84,7 @@ public class Missile : MonoBehaviour
             }
         }
 
-        transform.position += direction * speed * Time.deltaTime;
+        transform.position = Vector3.Lerp(transform.position,targetPosition,speed*Time.deltaTime);
 
         
     }
