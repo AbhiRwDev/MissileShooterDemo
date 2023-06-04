@@ -52,10 +52,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _DistortionMagnitude: 1
-    - _NoiseScale: 20.34
+    - _NoiseScale: 94.64
     - _QueueControl: 1
     - _QueueOffset: -1
-    - _RotationAmount: 6.9
-    - _TwirlStrength: 33.02
+    - _RotationAmount: 6.6
+    - _TwirlStrength: 60.6
     m_Colors: []
   m_BuildTextureStacks: []

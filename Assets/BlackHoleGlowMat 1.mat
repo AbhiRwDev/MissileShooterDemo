@@ -64,7 +64,7 @@ Material:
     - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 0
-    - _FresnelPower: 2.12
+    - _FresnelPower: 3.35
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SampleGI: 0
@@ -76,5 +76,5 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _FresnalColor: {r: 15.289455, g: 3.46561, b: 37.30627, a: 1}
+    - _FresnalColor: {r: 28.04025, g: 6.388918, b: 67.79352, a: 1}
   m_BuildTextureStacks: []
