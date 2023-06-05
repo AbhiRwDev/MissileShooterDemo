@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8831797015048614172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 0.9828009, z: 5}
+  m_LocalScale: {x: 3, y: 0.9828009, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8831797016317224417}
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 8831797016317224419}
   - component: {fileID: 8831797016317224418}
   - component: {fileID: 8831797016317224421}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BlackHoleObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ MonoBehaviour:
   affectedLayers:
     serializedVersion: 2
     m_Bits: 128
-  range: 25
+  range: 27
   AffectSpeed: 0.3
   suctionForce: 6
   BlackHole: {fileID: 8831797016274805805}

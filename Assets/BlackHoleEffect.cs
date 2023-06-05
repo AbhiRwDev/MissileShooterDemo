@@ -34,7 +34,7 @@ public class BlackHoleEffect : MonoBehaviour
         {
             Vector3 direction = (transform.position - affectedObject.transform.position).normalized;
             affectedObject.transform.position += direction * suctionForce * Time.deltaTime;
-            affectedObject.transform.localScale = Vector3.Lerp(affectedObject.transform.localScale,Vector3.zero,Time.deltaTime*AffectSpeed);
+          //  affectedObject.transform.localScale = Vector3.Lerp(affectedObject.transform.localScale,Vector3.zero,Time.deltaTime*AffectSpeed);
         }
        
     }

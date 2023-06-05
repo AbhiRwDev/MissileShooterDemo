@@ -5,6 +5,7 @@ using UnityEngine;
 public class Missile : MonoBehaviour
 {
     public float speed = 5f;
+    float timer;
     public float rotationSpeed = 10f;
 
     [SerializeField] private Vector3[] path;
@@ -13,7 +14,7 @@ public class Missile : MonoBehaviour
     public Vector3 targetPos;
     public float curveMagnitude;
     public int resolution;
-    public Transform targetpos1;
+   
     public GameObject[] sphere50;
     bool bHasCollided=false;
     public GameObject Effect;
@@ -39,7 +40,7 @@ public class Missile : MonoBehaviour
         {
             float t = (float)i / (resolution - 1);
             path[i] = CalculateCurvePoint(t);
-            sphere50[i].transform.position = path[i];
+           
         }
     }
 
@@ -55,7 +56,7 @@ public class Missile : MonoBehaviour
     {
         if (!bHasCollided)
         {
-            targetPos = targetpos1.position;
+           
             GeneratePath(resolution);
             if (path == null || path.Length == 0)
                 return;
@@ -70,10 +71,10 @@ public class Missile : MonoBehaviour
         Vector3 direction = (targetPosition - transform.position).normalized;
 
 
-        transform.LookAt(targetPosition);
-
+        transform.rotation = Quaternion.LookRotation(direction);
+        timer -= Time.deltaTime*speed;
         float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
-        if (distanceToTarget <= 0.4f)
+        if (distanceToTarget <= 0.5f)
         {
             currentPathIndex++;
 
@@ -84,19 +85,17 @@ public class Missile : MonoBehaviour
             }
         }
 
-        transform.position = Vector3.Lerp(transform.position,targetPosition,speed*Time.deltaTime);
+        transform.position += direction * speed * Time.deltaTime;
 
         
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         bHasCollided = true;
-        Instantiate(Effect,transform.position,Quaternion.identity);
+        Instantiate(Effect, transform.position, Quaternion.identity);
         DestroyMissile();
-        
-        //start the missile e
     }
+   
 
     private void DestroyMissile()
     {
