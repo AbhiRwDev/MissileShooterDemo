@@ -49,7 +49,7 @@ public class MissileLauncher : MonoBehaviour
     {
         if (Missiles[SelectedMissile].MissileLoadValue >= 1)
         {
-            GameObject G= Instantiate(Missiles[SelectedMissile].MissilePrefab);
+            GameObject G= Instantiate(Missiles[SelectedMissile].MissilePrefab,transform.position,Quaternion.identity);
             G.GetComponent<Missile>().targetPos = targetObject.transform.position;
             Missiles[SelectedMissile].MissileLoadValue = 0;
         }

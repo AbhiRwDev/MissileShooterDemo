@@ -2453,10 +2453,10 @@ MonoBehaviour:
     MissileReloadSpeed: 0.1
     MissilePrefab: {fileID: 2567903182135516333, guid: 7831cd1d07d349242bc3be9737e732be, type: 3}
   - MissileLoadValue: 0
-    MissileReloadSpeed: 0
+    MissileReloadSpeed: 0.3
     MissilePrefab: {fileID: 0}
   - MissileLoadValue: 0
-    MissileReloadSpeed: 0
+    MissileReloadSpeed: 0.5
     MissilePrefab: {fileID: 0}
 --- !u!1 &1155715513
 GameObject:
@@ -4880,39 +4880,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8831797016169106031, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8831797016317224414, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
       propertyPath: m_Name
       value: BlackHoleObject
       objectReference: {fileID: 0}
     - target: {fileID: 8831797016317224414, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831797016317224414, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831797016317224416, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
-      propertyPath: range
-      value: 27
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8831797016317224417, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831797016317224417, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.6899999
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831797016317224417, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.6899999
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831797016317224417, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.6899999
       objectReference: {fileID: 0}
     - target: {fileID: 8831797016317224417, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4953,18 +4933,6 @@ PrefabInstance:
     - target: {fileID: 8831797016317224417, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831797016606581493, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 41.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831797016606581493, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
-      propertyPath: InitialModule.startRotation.minScalar
-      value: -6.283185
-      objectReference: {fileID: 0}
-    - target: {fileID: 8831797016606581493, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
