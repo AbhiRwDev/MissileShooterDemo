@@ -10,9 +10,13 @@ public class BlackHoleEffect : MonoBehaviour
     public float suctionForce;
     private List<GameObject> affectedObjects = new List<GameObject>();
     public GameObject BlackHole;
-    private void Start()
+    private void OnEnable()
     {
         Invoke(nameof(DisableObject), 7f);
+    }
+    private void Start()
+    {
+       
     }
 
     private void Update()

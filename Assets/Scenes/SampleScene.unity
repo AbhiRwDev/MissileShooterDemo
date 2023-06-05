@@ -4926,7 +4926,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8831797016169106031, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8831797016317224414, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
       propertyPath: m_Name
@@ -4938,7 +4938,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8831797016317224414, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8831797016317224416, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
       propertyPath: range
@@ -4999,6 +4999,18 @@ PrefabInstance:
     - target: {fileID: 8831797016317224417, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831797016606581493, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 41.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831797016606581493, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
+      propertyPath: InitialModule.startRotation.minScalar
+      value: -6.283185
+      objectReference: {fileID: 0}
+    - target: {fileID: 8831797016606581493, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d44a1cc7ce1e957458e22f3bfcc5fa39, type: 3}
