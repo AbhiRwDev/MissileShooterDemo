@@ -4,9 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MissileLauncher : MonoBehaviour
 {
-    public GameObject[] Missiles;
-    public float MaxMissile1, MaxMissile2, MaxMissile3;
-    public float Missile1ReloadSpeed, Missile2ReloadSpeed, Missile3ReloadSpeed;
+   
+   
     public int SelectedMissile;
    
     public GameObject targetObject;
@@ -15,18 +14,19 @@ public class MissileLauncher : MonoBehaviour
     public Image[] MissileButtons;
 
     [System.Serializable]
-    public class cc
+    public class MissileParams
     {
-        [SerializeField]public float ti;
-       [SerializeField] public float csc;
+        [SerializeField]public float MissileLoadValue;
+        [SerializeField]public float MissileReloadSpeed;
+        [SerializeField]public GameObject MissilePrefab;
     }
-    [SerializeField] cc[] ccs;
+    [SerializeField] MissileParams[] Missiles;
     // Update is called once per frame
     void Update()
     {
         MissileReload();
         MissileAim();
-        
+        UpdateMissileButtons();
     }
     public void MissileAim()
     {
@@ -47,68 +47,34 @@ public class MissileLauncher : MonoBehaviour
     
     public void ShootMissile()
     {
-        if (SelectedMissile > -1)
+        if (Missiles[SelectedMissile].MissileLoadValue >= 1)
         {
-            GameObject g = Instantiate(Missiles[SelectedMissile], transform.position, Quaternion.identity);
-            switch (SelectedMissile)
-            {
-                case 0:
-
-                    g.GetComponent<Missile>().targetPos = targetObject.transform.position;
-                    SelectedMissile = -1;
-                    MaxMissile1 = 0;
-                    break;
-                case 1:
-
-                    g.GetComponent<Missile>().targetPos = targetObject.transform.position;
-                    SelectedMissile = -1;
-                    MaxMissile2 = 0;
-                    break;
-                case 2:
-
-                    g.GetComponent<Missile>().targetPos = targetObject.transform.position;
-                    SelectedMissile = -1;
-                    MaxMissile3 = 0;
-                    break;
-            }
+            GameObject G= Instantiate(Missiles[SelectedMissile].MissilePrefab);
+            G.GetComponent<Missile>().targetPos = targetObject.transform.position;
+            Missiles[SelectedMissile].MissileLoadValue = 0;
         }
+                  
     }
     public void MissileReload()
     {
-        MaxMissile1 += Time.deltaTime * Missile1ReloadSpeed;
-        MaxMissile2 += Time.deltaTime * Missile2ReloadSpeed;
-        MaxMissile3 += Time.deltaTime * Missile3ReloadSpeed;
-        MaxMissile1= Mathf.Clamp(MaxMissile1,0,1);
-        MaxMissile2= Mathf.Clamp(MaxMissile2,0,1);
-        MaxMissile3= Mathf.Clamp(MaxMissile3,0,1);
+        foreach (var item in Missiles)
+        {
+            item.MissileLoadValue += Time.deltaTime * item.MissileReloadSpeed;
+            item.MissileLoadValue = Mathf.Clamp(item.MissileLoadValue, 0, 1);
+        }
+       
+        
+    }
+    public void UpdateMissileButtons()
+    {
+        for (int i = 0; i < Missiles.Length; i++)
+        {
+            MissileButtons[i].fillAmount = Missiles[i].MissileLoadValue;
+        }
     }
     public void SelectMissile(int missile)
     {
-
-        switch(missile)
-        {
-            case 0:
-                if (MaxMissile1 >= 1)
-                {
-                    SelectedMissile = missile;
-                }
-                break;
-            case 1:
-                if (MaxMissile2 >= 1)
-                {
-                    SelectedMissile = missile;
-                }
-                break;
-            case 2:
-                if (MaxMissile3 >= 1)
-                {
-                    SelectedMissile = missile;
-                }
-                break;
-        }
-      
-        
-
+        SelectedMissile = missile;
     }
 
 }

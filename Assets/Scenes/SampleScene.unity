@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: 54830425}
   - component: {fileID: 54830424}
   - component: {fileID: 54830423}
-  - component: {fileID: 54830422}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -278,21 +277,6 @@ RectTransform:
   m_AnchoredPosition: {x: -275.81, y: -457.25}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &54830422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 54830420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2053e802b4a14c54bb82cfb3fc069102, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missiletype: 2
-  launcher: {fileID: 1115814167}
-  image: {fileID: 0}
 --- !u!114 &54830423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -855,7 +839,6 @@ GameObject:
   - component: {fileID: 297644119}
   - component: {fileID: 297644118}
   - component: {fileID: 297644117}
-  - component: {fileID: 297644120}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -978,21 +961,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 297644115}
   m_CullTransparentMesh: 1
---- !u!114 &297644120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297644115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2053e802b4a14c54bb82cfb3fc069102, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missiletype: 0
-  launcher: {fileID: 1115814167}
-  image: {fileID: 0}
 --- !u!1 &320649841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2471,23 +2439,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b66e6196fca4c440a722c7764d676d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Missiles:
-  - {fileID: 2567903182135516333, guid: 1250df8ea29c4e74cb31ea4bca4fbc2c, type: 3}
-  - {fileID: 2567903182135516333, guid: 1250df8ea29c4e74cb31ea4bca4fbc2c, type: 3}
-  - {fileID: 2567903182135516333, guid: 1250df8ea29c4e74cb31ea4bca4fbc2c, type: 3}
-  MaxMissile1: 0
-  MaxMissile2: 0
-  MaxMissile3: 0
-  Missile1ReloadSpeed: 0.1
-  Missile2ReloadSpeed: 0.3
-  Missile3ReloadSpeed: 0.5
   SelectedMissile: -1
   targetObject: {fileID: 597788560}
   raycastLayer:
     serializedVersion: 2
     m_Bits: 2048
-  MissileButtons: []
-  ccs: []
+  MissileButtons:
+  - {fileID: 297644118}
+  - {fileID: 1502743783}
+  - {fileID: 54830424}
+  Missiles:
+  - MissileLoadValue: 0
+    MissileReloadSpeed: 0.1
+    MissilePrefab: {fileID: 2567903182135516333, guid: 7831cd1d07d349242bc3be9737e732be, type: 3}
+  - MissileLoadValue: 0
+    MissileReloadSpeed: 0
+    MissilePrefab: {fileID: 0}
+  - MissileLoadValue: 0
+    MissileReloadSpeed: 0
+    MissilePrefab: {fileID: 0}
 --- !u!1 &1155715513
 GameObject:
   m_ObjectHideFlags: 0
@@ -3263,7 +3233,6 @@ GameObject:
   - component: {fileID: 1502743784}
   - component: {fileID: 1502743783}
   - component: {fileID: 1502743782}
-  - component: {fileID: 1502743781}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -3292,21 +3261,6 @@ RectTransform:
   m_AnchoredPosition: {x: 261.74, y: -457.25}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1502743781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502743779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2053e802b4a14c54bb82cfb3fc069102, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missiletype: 1
-  launcher: {fileID: 1115814167}
-  image: {fileID: 0}
 --- !u!114 &1502743782
 MonoBehaviour:
   m_ObjectHideFlags: 0
