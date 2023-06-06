@@ -11,13 +11,13 @@ TagManager:
   - 
   - Water
   - UI
-  - BlackHoleLayer
-  - BlackHoleEffected
+  - BlackHole
+  - ExplosionEffect
   - CrossheirTarget
   - Missile
   - MissileLauncher
   - Ground
-  - 
+  - ExplosionEffectedLayers
   - 
   - 
   - 
