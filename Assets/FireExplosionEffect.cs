@@ -9,7 +9,7 @@ public class FireExplosionEffect : MonoBehaviour
     public float EffectForce;
     
     private List<GameObject> affectedObjects = new List<GameObject>();
-    public CameraShake cameraShake;
+    CameraShake cameraShake;
     private void OnEnable()
     {
         Invoke(nameof(DisableObject), 7f);
@@ -38,7 +38,11 @@ public class FireExplosionEffect : MonoBehaviour
         {
             if(item.GetComponent<Rigidbody>()!=null)
             {
-                item.GetComponent<Rigidbody>().AddForce((item.transform.position-transform.position).normalized*EffectForce,ForceMode.Impulse);
+                Rigidbody rb = item.GetComponent<Rigidbody>();
+                rb.constraints = RigidbodyConstraints.None;
+                //rb.AddForce(((item.transform.position-transform.position).normalized + Vector3.up )* EffectForce,ForceMode.Impulse);
+                rb.AddForceAtPosition(((item.transform.position-transform.position).normalized )* EffectForce,rb.transform.position+Vector3.up,ForceMode.Impulse);
+                rb.gameObject.GetComponent<EnemyController>().Damage(20);
             }
         }
     }
@@ -48,8 +52,6 @@ public class FireExplosionEffect : MonoBehaviour
         gameObject.SetActive(false);
 
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        collision.gameObject.SetActive(false);
-    }
+    
+
 }

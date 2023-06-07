@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 8831797016317224419}
   - component: {fileID: 8831797016317224418}
   - component: {fileID: 8831797016317224421}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: BlackHoleObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,10 +521,9 @@ MonoBehaviour:
   affectedLayers:
     serializedVersion: 2
     m_Bits: 128
-  range: 27
+  range: 45
   AffectSpeed: 0.3
-  suctionForce: 6
-  cameraShake: {fileID: 0}
+  suctionForce: 100
 --- !u!135 &8831797016317224419
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -536,7 +535,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.01
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8831797016317224418
 Rigidbody:

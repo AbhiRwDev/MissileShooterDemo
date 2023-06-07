@@ -14636,11 +14636,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  rotationSpeed: 30
+  missileType: 2
+  rotationSpeed: 20
   path: []
   startPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 20.45, y: 1.1, z: 43.97}
-  curveMagnitude: 10
+  curveMagnitude: 15
   resolution: 20
   sphere50:
   - {fileID: 0}
@@ -24631,7 +24632,6 @@ MonoBehaviour:
   range: 27
   AffectSpeed: 0.3
   suctionForce: 6
-  BlackHole: {fileID: 8831797014788828673}
 --- !u!135 &8831797014813257679
 SphereCollider:
   m_ObjectHideFlags: 0

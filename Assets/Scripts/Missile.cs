@@ -5,25 +5,35 @@ using UnityEngine;
 public class Missile : MonoBehaviour
 {
     public float speed = 5f;
-    float timer;
+    public enum Missiletype
+    {
+        Fire,
+        Chain,
+        BlackHole
+    }
+    public Missiletype missileType;
     public float rotationSpeed = 10f;
-
+    
     [SerializeField] private Vector3[] path;
-    private int currentPathIndex = 0;
+    public int currentPathIndex = 0;
     public Vector3 startPos;
     public Vector3 targetPos;
     public float curveMagnitude;
     public int resolution;
    
-    public GameObject[] sphere50;
-    bool bHasCollided=false;
+    
+    public bool bHasCollided=false;
     public GameObject Effect;
-   
+    private void OnEnable()
+    {
+        currentPathIndex = 0;
+    }
     private void Start()
     {
         startPos = transform.position;
+        
         GeneratePath(resolution);
-
+        
      
     }
 
@@ -57,7 +67,7 @@ public class Missile : MonoBehaviour
         if (!bHasCollided)
         {
            
-            GeneratePath(resolution);
+          //  GeneratePath(resolution);
             if (path == null || path.Length == 0)
                 return;
 
@@ -71,8 +81,8 @@ public class Missile : MonoBehaviour
         Vector3 direction = (targetPosition - transform.position).normalized;
 
 
-        transform.rotation = Quaternion.LookRotation(direction);
-        timer -= Time.deltaTime*speed;
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * rotationSpeed);
+        
         float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
         if (distanceToTarget <= 0.5f)
         {
@@ -84,6 +94,7 @@ public class Missile : MonoBehaviour
                 return;
             }
         }
+        
 
         transform.position += direction * speed * Time.deltaTime;
 
@@ -91,18 +102,57 @@ public class Missile : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        bHasCollided = true;
-        Instantiate(Effect, transform.position, Quaternion.identity);
-        DestroyMissile();
+            bHasCollided = true;
+            CreateEffects();
+            
+            Disable();
+           
+        
     }
    
-
-    private void DestroyMissile()
+    public void Disable()
     {
-      
-        Destroy(gameObject);
+        bHasCollided = false;
+        switch (missileType)
+        {
+            case Missiletype.Fire:
+                Objectpool.ObjectPool.AddToPool(Objectpool.ObjectType.FireMissile, gameObject);
+                break;
+            case Missiletype.Chain:
+                Objectpool.ObjectPool.AddToPool(Objectpool.ObjectType.ChainMissile, gameObject);
+                break;
+            case Missiletype.BlackHole:
+                Objectpool.ObjectPool.AddToPool(Objectpool.ObjectType.BlackHoleMissile, gameObject);
+                break;
+        }
     }
-   
+    public void CreateEffects()
+    {
+        GameObject G = null;
+        switch (missileType)
+        {
+            case Missiletype.Fire:
+                G = Objectpool.ObjectPool.GetFromPool(Objectpool.ObjectType.FireEffects);
+                G.transform.position = transform.position;
+                G.transform.rotation = Quaternion.identity;
+                G.SetActive(true);
+                
+                break;
+            case Missiletype.Chain:
+                G = Objectpool.ObjectPool.GetFromPool(Objectpool.ObjectType.ChainEffects);
+                G.transform.position = transform.position;
+                G.transform.rotation = Quaternion.identity;
+                G.SetActive(true);
+                break;
+            case Missiletype.BlackHole:
+                G = Objectpool.ObjectPool.GetFromPool(Objectpool.ObjectType.BlackHoleEffects);
+                G.transform.position = transform.position;
+                G.transform.rotation = Quaternion.identity;
+                G.SetActive(true);
+                break;
+        }
+    }
+  
 }
 
 

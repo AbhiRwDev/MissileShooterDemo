@@ -10,9 +10,13 @@ public class BlackHole : MonoBehaviour
 
     private float shrinkSpeed;
     private float duration;
-    private void Start()
+    private void Awake()
     {
         Scale = transform.localScale;
+    }
+    private void Start()
+    {
+      
         duration = Duration;
         shrinkSpeed = ShrinkSpeed;
     }

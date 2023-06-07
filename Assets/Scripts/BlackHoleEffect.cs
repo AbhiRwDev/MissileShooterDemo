@@ -9,7 +9,7 @@ public class BlackHoleEffect : MonoBehaviour
     public float AffectSpeed;
     public float suctionForce;
     private List<GameObject> affectedObjects = new List<GameObject>();
-    public CameraShake cameraShake;
+    CameraShake cameraShake;
     private void OnEnable()
     {
         Invoke(nameof(DisableObject), 7f);
@@ -39,6 +39,8 @@ public class BlackHoleEffect : MonoBehaviour
         {
             Vector3 direction = (transform.position - affectedObject.transform.position).normalized;
             affectedObject.transform.position += direction * suctionForce * Time.deltaTime;
+
+           // affectedObject.transform.Rotate(transform.position,150*Time.deltaTime);
           //  affectedObject.transform.localScale = Vector3.Lerp(affectedObject.transform.localScale,Vector3.zero,Time.deltaTime*AffectSpeed);
         }
        
@@ -52,6 +54,9 @@ public class BlackHoleEffect : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        collision.gameObject.SetActive(false);
+        if(collision.collider.gameObject.GetComponent<EnemyController>())
+        {
+            collision.collider.gameObject.GetComponent<EnemyController>().StartCoroutine(collision.collider.gameObject.GetComponent<EnemyController>().Disable(0));
+        }
     }
 }
