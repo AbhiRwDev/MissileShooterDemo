@@ -37,9 +37,11 @@ public class MissileLauncher : MonoBehaviour
         
         HingeObject.LookAt(s);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, raycastLayer))
         {
-            targetObject.transform.position = hit.point;
+            targetObject.SetActive(true);
+            targetObject.transform.position = hit.point+new Vector3(0,0.001f,0);
             if (Input.GetMouseButtonDown(0))
             {
                 ShootMissile();
