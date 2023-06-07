@@ -20,7 +20,7 @@ public class Missile : MonoBehaviour
     public Vector3 targetPos;
     public float curveMagnitude;
     public int resolution;
-   
+    public Transform TargetIndicator;
     
     public bool bHasCollided=false;
     public GameObject Effect;
@@ -66,7 +66,8 @@ public class Missile : MonoBehaviour
     {
         if (!bHasCollided)
         {
-           
+            TargetIndicator.transform.position = targetPos+new Vector3(0,0.5f,0);
+            TargetIndicator.rotation = Quaternion.Euler(0,0,0);
           //  GeneratePath(resolution);
             if (path == null || path.Length == 0)
                 return;
